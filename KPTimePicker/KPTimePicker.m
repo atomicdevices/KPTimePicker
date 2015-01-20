@@ -24,8 +24,8 @@
 #define kMinutesInHalfDay 720
 
 #define kSunImageDistance valForScreen(160, 100)
-#define kClockLabelFont [UIFont fontWithName:@"HelveticaNeue-Light" size:valForScreen(55,75)]
-#define kDayLabelFont [UIFont fontWithName:@"HelveticaNeue-Light" size:valForScreen(16,19)]
+#define kClockLabelFont [UIFont fontWithName:@"ProximaNova-Light" size:valForScreen(55,75)]
+#define kDayLabelFont [UIFont fontWithName:@"ProximaNova-Light" size:valForScreen(16,19)]
 #define kDefMiddleButtonRadius 60
 #define kDefActualSize valForScreen(85,93)
 #define kDefClearMiddle 45
@@ -202,7 +202,7 @@
 -(void)updateForDate:(NSDate*)date{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
-    dateFormatter.dateFormat = @"HH:mm";
+    dateFormatter.dateFormat = @"hh:mm a";
     NSString *dayString;
     NSString *timeString;
     if([self.delegate respondsToSelector:@selector(timePicker:titleForDate:)]) dayString = [self.delegate timePicker:self titleForDate:date];
@@ -316,8 +316,8 @@
         [self.backButton setImage:[UIImage imageNamed:@"round_backarrow_big"] forState:UIControlStateNormal];
         [self.backButton setImage:[UIImage imageNamed:@"round_backarrow_big-high"] forState:UIControlStateHighlighted];
         [self.backButton addTarget:self action:@selector(pressedBackButton:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.backButton];
-        
+//        [self addSubview:self.backButton];
+
         UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
         panGestureRecognizer.delegate = self;
         [self addGestureRecognizer:panGestureRecognizer];
