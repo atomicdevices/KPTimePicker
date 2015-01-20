@@ -25,7 +25,7 @@
 
 #define kSunImageDistance valForScreen(160, 100)
 #define kClockLabelFont [UIFont fontWithName:@"ProximaNova-Light" size:valForScreen(55,75)]
-#define kDayLabelFont [UIFont fontWithName:@"ProximaNova-Light" size:valForScreen(16,19)]
+#define kDayLabelFont [UIFont fontWithName:@"ProximaNova-Reg" size:valForScreen(16,19)]
 #define kDefMiddleButtonRadius 60
 #define kDefActualSize valForScreen(85,93)
 #define kDefClearMiddle 45
@@ -202,7 +202,7 @@
 -(void)updateForDate:(NSDate*)date{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
-    dateFormatter.dateFormat = @"hh:mm a";
+    dateFormatter.dateFormat = @"h:mm a";
     NSString *dayString;
     NSString *timeString;
     if([self.delegate respondsToSelector:@selector(timePicker:titleForDate:)]) dayString = [self.delegate timePicker:self titleForDate:date];
